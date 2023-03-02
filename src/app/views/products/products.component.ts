@@ -18,4 +18,7 @@ export class ProductsComponent implements OnInit {
     this.products = this.productHandler.getProducts();
   }
 
+  showProduct(product: Product) {
+    this.productHandler.getProductById(product);
+  }
 }
