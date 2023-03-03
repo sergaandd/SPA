@@ -4,23 +4,28 @@
   <!--  New block-->
   <div class="container px-4 px-lg-5 mt-1">
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-      <div class="col mb-5 pointer" *ngFor="let product of products" (click)="showProduct(product)">
+      <div class="col mb-5" *ngFor="let product of products">
         <div class="shadow p-3 mb-5 bg-white rounded card h-100">
           <!-- Product image-->
           <img class="card-img-top" src="{{product.file_name}}" alt="..."/>
           <!-- Product details-->
-          <div class="card-body p-4">
+          <div class="card-body p-1">
             <div class="text-center">
               <!-- Product name-->
               <h5 class="fw-bolder">{{product.name}}</h5>
+              <h5 class="fw-bolder"
+                  [class.text-success]="product.status==='В наявності'"
+                  [class.text-danger]="product.status!='В наявності'"
+              >{{product.status}}</h5>
               <!-- Product price-->
-              {{product.price}}$
+              <h5 class="fw-bolder text-primary"
+              >{{product.price}}$</h5>
             </div>
           </div>
           <!-- Product actions-->
-          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View
-              options</a></div>
+          <div class="card-footer p-0 pt-0 border-top-0 bg-transparent">
+            <div class="text-center"><a class="btn btn-primary mt-auto" (click)="showProduct(product)">
+              Детальніше</a></div>
           </div>
         </div>
       </div>

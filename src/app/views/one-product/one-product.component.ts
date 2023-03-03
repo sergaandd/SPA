@@ -20,4 +20,7 @@ export class OneProductComponent implements OnInit {
     .subscribe(product => this.oneProduct = product);
   }
 
+  clearProduct() {
+    this.oneProduct=[];
+  }
 }
