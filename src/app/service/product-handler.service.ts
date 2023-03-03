@@ -16,7 +16,6 @@ export class ProductHandlerService {
 
   getProductById(productById: Product): Product[] {
     const product =  TestData.products.filter(product=>product.id=== productById.id);
-    console.log(product)
     return product;
   }
 }
