@@ -7,10 +7,11 @@ export class TestData {
     {
       id: 1,
       name: "Манжета синя 22-32см",
-      details: "Манжета темно-синя з чорною трубкою типу Microlife"
+      details: "Манжета темно-синя 22-32см з чорною трубкою типу Microlife." +
+        " Довжина трубки 55см, камера PVC. В ящику 100шт. Вага 11,5кг. Розміри ящика 39*60*17см."
       ,
       price: 2.32,
-      status: "Очікується в квітні 2023р.",
+      status: "В наявності",
       file_name: "assets/image/1.jpg"
     },
     {
@@ -19,7 +20,7 @@ export class TestData {
     },
     {
       id: 3, name: "Манжета чорна 22-32см", details: "Манжета чорна з чорною трубкою типу A&D"
-      , price: 2.32, status: "Очікується в квітні 2023р.", file_name: "assets/image/3.jpg"
+      , price: 2.32, status: "В наявності", file_name: "assets/image/3.jpg"
     },
     {
       id: 4, name: "Манжета чорна 22-32см", details: "Манжета чорна з сірою трубкою типу A&D"
@@ -31,7 +32,7 @@ export class TestData {
       details: "Манжета темно-синя з чорною трубкою типу Longevita"
       ,
       price: 2.35,
-      status: "Очікується в квітні 2023р.",
+      status: "В наявності",
       file_name: "assets/image/5.jpg"
     },
   ];
