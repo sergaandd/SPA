@@ -4,5 +4,5 @@ import {Category} from "../../../model/Category";
 import {Observable} from "rxjs";
 
 export interface ProductDAO extends CommonDAO<Product[]> {
-  search(category: Category, findName: string): Observable<Product[]>;
+  search(category: Category, findName: string): Observable<Product[]> | undefined;
 }
