@@ -2,21 +2,21 @@
   <!--  New block-->
   <app-one-product></app-one-product>
   <!--  New block-->
-  <div class="container px-4 px-lg-5 mt-1">
+  <div class="container px-4 px-lg-5 mt-1" >
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
       <div class="col mb-5" *ngFor="let product of products">
-        <div class="shadow p-3 mb-5 bg-white rounded card h-100">
+        <div class="card h-100 shadow p-3 mb-5 bg-white rounded ">
           <!-- Product image-->
           <img class="card-img-top" src="{{product.file_name}}" alt="..."/>
           <!-- Product details-->
           <div class="card-body p-1">
             <div class="text-center">
               <!-- Product name-->
-              <h5 class="fw-bolder">{{product.name}}</h5>
-              <h5 class="fw-bolder"
+              <h6 class="fw-bolder text-truncate">{{product.name}}</h6>
+              <h6 class="fw-bolder text-truncate"
                   [class.text-success]="product.status==='В наявності'"
                   [class.text-danger]="product.status!='В наявності'"
-              >{{product.status}}</h5>
+              >{{product.status}}</h6>
               <!-- Product price-->
               <h5 class="fw-bolder text-primary"
               >{{product.price}}$</h5>

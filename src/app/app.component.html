@@ -8,7 +8,7 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
   <div class="container px-4">
-    <b class="navbar-brand text-primary" style="font-size:24px">TOP МЕДТЕХНІКА</b>
+    <b class="navbar-brand text-primary" style="font-size:24px">ОПТ МЕДТЕХНІКА</b>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation"><span
@@ -32,15 +32,22 @@
 </nav>
 <!-- Header-->
 <header class="bg-white py-1">
-
-  <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
+  <div class="bg-image p-5 text-center shadow-1-strong rounded mb-1 text-white"
     style="background-image: url('assets/image/logo.png');">
     <div class="text-center ">
-      <h1 class="display-4 text-warning fw-bolder ">ТОП МЕДТЕХНІКА</h1>
+      <h1 class="display-4 text-warning fw-bolder ">ОПТ МЕДТЕХНІКА</h1>
       <p class="lead fw-bold text-white mb-0">Товари за оптовими цінами</p>
     </div>
   </div>
 </header>
+<!-- Button menu-->
+<div class="container text-center px-4 px-lg-5 mt-1">
+    <button type="button" class="shadow p-3 mb-2 rounded btn btn-md py-2 mx-2
+    px-2 btn-outline-primary " (click)="showProductsByCategory(category)"
+            *ngFor="let category of categories"
+    [class.active]="category===selectedCategory">
+    {{category.name}}</button>
+  </div>
 <!-- Section-->
 <app-products></app-products>
 <!-- Footer-->

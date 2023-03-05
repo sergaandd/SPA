@@ -4,13 +4,17 @@
     <div class=" col mb-5" *ngFor="let product of oneProduct" >
       <div class="shadow-lg p-3 mb-5 bg-white rounded card h-100" >
         <!-- Sale badge-->
-        <div class="badge bg-secondary text-white position-absolute pointer" (click)="clearProduct()"
+        <div class="badge bg-warning text-dark position-absolute"
+             style="top: 0.5rem; left: 0.5rem">100грн
+        </div>
+
+        <div class="badge bg-danger text-white position-absolute pointer" (click)="clearProduct()"
              style="top: 0.5rem; right: 0.5rem">X
         </div>
         <!-- Product image-->
         <img class="card-img-top" src="{{product.file_name}}" alt="..."/>
         <!-- Product details-->
-        <div class="card-body p-4">
+        <div class="card-body p-0">
           <div class="text-center">
             <!-- Product name-->
             <h5 class="fw-bolder">{{product.name}}</h5>
@@ -21,7 +25,7 @@
         </div>
         <!-- Product actions-->
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">У кошик</a>
+          <div class="text-center"><a class="btn btn-success mt-auto" href="#">У кошик</a>
           </div>
         </div>
 
