@@ -5,6 +5,7 @@ import {DialogPosition, MatDialog} from "@angular/material/dialog";
 import {
   AddProductBasketComponent
 } from "../../dialog/add-product-basket/add-product-basket.component";
+import {Cart} from "../../model/Cart";
 
 @Component({
   selector: 'app-products',
@@ -13,6 +14,7 @@ import {
 })
 export class ProductsComponent implements OnInit {
   products: Product[] | any;
+  cart: Cart[] | any;
 
   constructor(
     private productHandler: ProductHandlerService,
@@ -24,17 +26,15 @@ export class ProductsComponent implements OnInit {
     this.productHandler.productsSubject.subscribe(products => this.products = products);
   }
 
-  showProduct(product: Product):void {
-    this.productHandler.getProductById(product);
-  }
-
   openAddProductDialog(product: Product) {
     let dialogRef = this.dialog.open(AddProductBasketComponent, {
       data: [product, 'Додати товар до кошика'],
       hasBackdrop: true,
+      width:"400px",
       disableClose: true,
-      autoFocus: false,
+      autoFocus: true,
     });
-    dialogRef.afterClosed().subscribe((result) => {});
+    dialogRef.afterClosed().subscribe((result) => {
+    });
   }
 }

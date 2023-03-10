@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from "./model/Product";
 import {ProductHandlerService} from "./service/product-handler.service";
 import {Category} from "./model/Category";
+import {Cart} from "./model/Cart";
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,9 @@ import {Category} from "./model/Category";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  categories: Category[] | undefined;
-  selectedCategory: Category | undefined;
+  categories: Category[] | any;
+  cart: Cart[] | any;
+  selectedCategory: Category | any;
 
   constructor(private productHandler: ProductHandlerService) {
 
@@ -18,6 +20,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.categories = this.productHandler.getCategories();
+    this.cart = this.productHandler.getCart();
   }
 
   showProductsByCategory(category: Category) {

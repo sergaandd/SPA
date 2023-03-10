@@ -1,13 +1,16 @@
- <div class="row gx-1 gx-lg-1 row-cols-2 row-cols-md-3 row-cols-4 justify-content-center">
-    <div class=" col mb-5">
-      <div class="shadow-lg p-3 mb-5 bg-white rounded card h-100" >
+<mat-dialog-content>
+  <div class="row mx-0 gx-0 gx-lg-1 row-cols-2 row-cols-md-1 row-cols-4 justify-content-center">
+    <div class=" col mb-0">
+      <div class="card h-100 py-0 px-1 border-0">
         <!-- Sale badge-->
         <div class="badge bg-warning text-dark position-absolute"
-             style="top: 0.5rem; left: 0.5rem">100грн
+             style="font-size:24px; top: 0.1rem; left: 0.1rem">{{product.price}}грн
         </div>
-
-        <div class="badge bg-danger text-white position-absolute pointer"
-             style="top: 0.5rem; right: 0.5rem">X
+        <div class="badge bg-white position-absolute"
+             style="font-size:24px; top: 0.1rem; right: 0.1rem"
+          [class.text-success]="product.status==='В наявності'"
+          [class.text-danger]="product.status!='В наявності'"
+        >{{product.status}}
         </div>
         <!-- Product image-->
         <img class="card-img-top" src="{{product.file_name}}" alt="..."/>
@@ -15,27 +18,25 @@
         <div class="card-body p-0">
           <div class="text-center">
             <!-- Product name-->
-            <h5 class="fw-bolder">{{product.name}}</h5>
+            <h6 class="fw-bolder text-start text-dark">{{product.details}}</h6>
             <!-- Product price-->
-            <h5 class="fw-bolder text-primary"
-            >{{product.price}}$</h5>
           </div>
         </div>
         <!-- Product actions-->
-        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-          <div class="text-center"><a class="btn btn-success mt-auto" href="#">У кошик</a>
-          </div>
-        </div>
-
+          <mat-form-field color="primary" appearance="outline" style="padding-bottom:0px;margin-bottom: 0px; margin: auto; align-content: center; width: 90px">
+            <mat-label>Кількість</mat-label>
+            <input class="text-center" matInput
+                   (keydown.enter)="AddProductToCart()"
+                   [(ngModel)]="qtyOrder">
+          </mat-form-field>
+        <!-- Product actions-->
       </div>
     </div>
-    <div class="col mb-5" >
-      <h5 class="fw-bolder">{{product.details}}</h5>
-      <p></p>
-      <h5 class="fw-bolder"
-          [class.text-success]="product.status==='В наявності'"
-          [class.text-danger]="product.status!='В наявності'"
-      >{{product.status}}</h5>
-    </div>
   </div>
-
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button class="btn mx-2 btn-success align-center"
+          [disabled]="qtyOrder==0"
+          (click)="AddProductToCart()">У кошик</button>
+  <button class="btn mx-2 btn-danger align-center" (click)="onCancel()">Відміна</button>
+</mat-dialog-actions>

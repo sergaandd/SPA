@@ -1,10 +1,8 @@
-<section class="py-1">
+<!--<section class="py-1" >-->
   <!--  New block-->
-  <app-one-product></app-one-product>
-  <!--  New block-->
-  <div class="container px-4 px-lg-5 mt-1" >
-    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-      <div class="col mb-5" *ngFor="let product of products">
+<!--  <div class="container px-4 px-lg-5 mt-1" >-->
+    <div class="row gx-1 m-4 gx-lg-4 row-cols-2 row-cols-md-3 row-cols-xl-6 justify-content-center" >
+      <div class="col mb-5"  *ngFor="let product of products">
         <div class="card h-100 shadow p-3 mb-5 bg-white rounded ">
           <!-- Product image-->
           <img class="card-img-top" src="{{product.file_name}}" alt="..."/>
@@ -19,7 +17,7 @@
               >{{product.status}}</h6>
               <!-- Product price-->
               <h5 class="fw-bolder text-primary"
-              >{{product.price}}$</h5>
+              >{{product.price}}грн</h5>
             </div>
           </div>
           <!-- Product actions-->
@@ -30,6 +28,6 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
+<!--  </div>-->
+<!--</section>-->
 
