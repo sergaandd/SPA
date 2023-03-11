@@ -20,9 +20,9 @@
         <li class="nav-item"><a class="nav-link" href="#!">Контакти</a></li>
         <li class="nav-item"><a class="nav-link" href="#!">Доставка</a></li>
       </ul>
-      <form class="d-flex">
+      <form class="d-flex" (click)="openCartDialog()">
         <button class="btn btn-outline-dark" type="submit">
-          <i class="bi-cart-fill me-1"></i>
+          <i class="bi-cart-fill me-1" (click)="openCartDialog()"></i>
           Кошик
           <span class="badge bg-dark text-white ms-1 rounded-pill">{{cart.length}}</span>
         </button>

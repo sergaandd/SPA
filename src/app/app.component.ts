@@ -3,6 +3,9 @@ import {Product} from "./model/Product";
 import {ProductHandlerService} from "./service/product-handler.service";
 import {Category} from "./model/Category";
 import {Cart} from "./model/Cart";
+import {AddProductBasketComponent} from "./dialog/add-product-basket/add-product-basket.component";
+import {CartComponent} from "./dialog/cart/cart.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +17,8 @@ export class AppComponent implements OnInit {
   cart: Cart[] | any;
   selectedCategory: Category | any;
 
-  constructor(private productHandler: ProductHandlerService) {
+  constructor(private productHandler: ProductHandlerService,
+              private dialog: MatDialog) {
 
   }
 
@@ -26,5 +30,18 @@ export class AppComponent implements OnInit {
   showProductsByCategory(category: Category) {
     this.selectedCategory = category;
     this.productHandler.getProductsByCategory(category);
+  }
+
+  openCartDialog() {
+    console.log(this.cart.length);
+    let dialogRef = this.dialog.open(CartComponent, {
+      data: [this.cart,'Кошик ваших товарів'],
+      hasBackdrop: true,
+      width:"60%",
+      disableClose: true,
+      autoFocus: true,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+    });
   }
 }

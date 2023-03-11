@@ -159,10 +159,10 @@ export class TestData {
   static cartSource: Cart[]=[
     {
       id: 1,
-      name: "Манжета чорна 22-32см",
+      name: "Манжета синя 22-32см",
       price: 10,
       qty: 5,
-      file_name: "assets/image/4.jpg"
+      file_name: "assets/image/1.jpg"
     },
     {
       id: 2,
