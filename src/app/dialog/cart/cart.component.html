@@ -1,0 +1,42 @@
+<p></p>
+<mat-dialog-content style="max-height: 85vh">
+<h5 align="center" style="color: black">{{dialogTitle}}</h5>
+<div class="p-2">
+<!--  table block-->
+  <table class="table table-bordered">
+    <thead class="bg-dark text-center text-white">
+    <tr>
+      <th scope="col" style="width: 100px">Фото</th>
+      <th scope="col">Найменування</th>
+      <th scope="col">Кількість</th>
+      <th scope="col">Ціна</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cartItem of cartProduct" >
+      <th scope="row">
+        <div class="container">
+          <img src="{{cartItem.file_name}}" style="height: 70px">
+        </div>
+      </th>
+      <td class="align-middle" style="font-weight: bold; width: 350px">{{cartItem.name}}</td>
+      <td class="text-center align-middle" style="font-weight: bold">{{cartItem.qty}}шт</td>
+      <td class="text-center align-middle" style="font-weight: bold">{{cartItem.price}}грн</td>
+      <td class="text-center align-middle">
+        <div class="container pointer" (click)="cartItemDelete(cartItem)" >
+          <img src="assets/image/trash.svg" style="height: 25px">
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+  </mat-dialog-content>
+  <!--  table block-->
+<mat-dialog-actions align="center">
+  <button class="btn mx-2 btn-success align-center"
+          (click)="closeOrder()">Оформити замовлення</button>
+  <button class="btn mx-2 btn-danger align-center" (click)="onClose()">Закрити</button>
+</mat-dialog-actions>
+
