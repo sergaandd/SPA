@@ -2,6 +2,8 @@ import {Component, Inject} from '@angular/core';
 import {Cart} from "../../model/Cart";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {ProductHandlerService} from "../../service/product-handler.service";
+import {TestData} from "../../data/TestData";
+import {of} from "rxjs";
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +12,8 @@ import {ProductHandlerService} from "../../service/product-handler.service";
 })
 export class CartComponent {
   dialogTitle: string | any; // заголовок окна
-  cartProduct: Cart[] | any;
+  cartProduct: Cart[]| any ;
+  cartSum: number| any ;
 
   constructor(
     private dialogRef: MatDialogRef<CartComponent>, // // для возможности работы с текущим диалог. окном
@@ -19,10 +22,15 @@ export class CartComponent {
     private dialog: MatDialog
   ) {}
 
+  cartSumCalculate():number {
+    return this.cartProduct.reduce((accumulator:number, object:Cart) => {
+      return accumulator + object.qty*object.price;
+    }, 0);
+  }
   ngOnInit() {
     this.dialogTitle = this.data[1];
-    this.cartProduct = this.data[0]; // задача для редактирования/создания
-  console.log(this.cartProduct[0].name);
+    this.cartProduct = this.data[0];
+    this.cartSum=this.cartSumCalculate();
   }
 
   closeOrder() {
@@ -33,11 +41,9 @@ export class CartComponent {
     this.dialogRef.close(null);
   }
 
-  openDeleteDialog(id: Cart) {
-
-  }
-
   cartItemDelete(cartItem: Cart) {
-
+    TestData.cartSource.splice(TestData.cartSource.indexOf(cartItem), 1);
+    this.cartSum = this.cartSumCalculate();
+    return of(cartItem);
   }
 }

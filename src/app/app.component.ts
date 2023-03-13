@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
   }
 
   openCartDialog() {
-    console.log(this.cart[0].name);
     let dialogRef = this.dialog.open(CartComponent, {
       data: [this.cart,'Кошик ваших товарів'],
       hasBackdrop: true,
