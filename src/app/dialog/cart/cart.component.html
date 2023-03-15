@@ -21,7 +21,11 @@
         </div>
       </th>
       <td class="align-middle" style="font-weight: bold; width: 350px">{{cartItem.name}}</td>
-      <td class="text-center align-middle" style="font-weight: bold">{{cartItem.qty}}шт</td>
+      <td class="text-center align-middle" style="font-size:24px; font-weight: bold">
+          <img class="pointer" src="assets/image/minus.svg" style="height: 25px" (click)="cartItemMinus(cartItem)">
+        {{cartItem.qty}}
+        <img class="pointer" src="assets/image/plus.svg" style="height: 25px" (click)="cartItemPlus(cartItem)">
+      </td>
       <td class="text-center align-middle" style="font-weight: bold">{{cartItem.price}}грн</td>
       <td class="text-center align-middle">
         <div class="container pointer" (click)="cartItemDelete(cartItem)" >
@@ -34,9 +38,9 @@
 </div>
   </mat-dialog-content>
   <!--  table block-->
-<h4 style="margin-right: 40px; text-align: right">Сумма кошика складає : {{cartSum}}грн</h4>
+<h4 style="margin-right: 40px; text-align: right">Сума кошика складає : {{cartSum}}грн</h4>
 <mat-dialog-actions align="center">
   <button class="btn mx-2 btn-success align-center"
-          (click)="closeOrder()">Оформити замовлення</button>
+          (click)="closeOrder(cartProduct[0])">Оформити замовлення</button>
   <button class="btn mx-2 btn-danger align-center" (click)="onClose()">Закрити</button>
 </mat-dialog-actions>

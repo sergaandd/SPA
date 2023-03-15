@@ -11,13 +11,15 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import { CartComponent } from './dialog/cart/cart.component';
+import { CustomerDetailsComponent } from './dialog/customer-details/customer-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     AddProductBasketComponent,
-    CartComponent
+    CartComponent,
+    CustomerDetailsComponent
 
   ],
   imports: [

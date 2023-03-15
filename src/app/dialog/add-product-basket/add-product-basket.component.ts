@@ -41,6 +41,7 @@ export class AddProductBasketComponent {
       this.product.name,
       this.product.price,
       this.qtyOrder,
+      0,
       this.product.file_name);
       TestData.cartSource.push(newProductInCart);
       this.dialogRef.close(Product);

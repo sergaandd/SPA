@@ -152,8 +152,20 @@ export class TestData {
   ];
 
   static usersSource: Users[] = [
-    {id: 1, name: "user", password: "1", role: "user"},
-    {id: 2, name: "admin", password: "1", role: "admin"}
+    {id: 1, name: "user",
+      password: "1",
+      role: "user1",
+      fio:"Кобзар Тарас",
+      city:"Чернігів",
+      phone:"+380671122333",
+      adress:"Нова Пошта від. №14"},
+    {id: 2, name: "user2",
+      password: "1",
+      role: "user",
+      fio:"Франко Іван",
+      city:"Харків",
+      phone:"+380671122333",
+      adress:"Нова Пошта від. №76"}
   ];
 
   static cartSource: Cart[]=[
@@ -162,6 +174,7 @@ export class TestData {
       name: "Манжета синя 22-32см",
       price: 10,
       qty: 5,
+      customerId: 1,
       file_name: "assets/image/1.jpg"
     },
     {
@@ -169,6 +182,7 @@ export class TestData {
       name: "Груша латексна",
       price: 1,
       qty: 2,
+      customerId: 1,
       file_name: "assets/image/baloon.jpg"
     }
   ];

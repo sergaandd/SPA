@@ -4,6 +4,8 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog
 import {ProductHandlerService} from "../../service/product-handler.service";
 import {TestData} from "../../data/TestData";
 import {of} from "rxjs";
+import {CustomerDetailsComponent} from "../customer-details/customer-details.component";
+import {Users} from "../../model/Users";
 
 @Component({
   selector: 'app-cart',
@@ -13,6 +15,7 @@ import {of} from "rxjs";
 export class CartComponent {
   dialogTitle: string | any; // заголовок окна
   cartProduct: Cart[]| any ;
+  // customer:Users[]|any;
   cartSum: number| any ;
 
   constructor(
@@ -21,7 +24,10 @@ export class CartComponent {
     private dataHandler: ProductHandlerService, // ссылка на сервис для работы с данными
     private dialog: MatDialog
   ) {}
-
+  findCustomerDetailsById(id:number):Users|any{
+    // const customer=TestData.usersSource.find(x => x.id === id);
+    return TestData.usersSource.find(x => x.id === id);
+  }
   cartSumCalculate():number {
     return this.cartProduct.reduce((accumulator:number, object:Cart) => {
       return accumulator + object.qty*object.price;
@@ -33,8 +39,16 @@ export class CartComponent {
     this.cartSum=this.cartSumCalculate();
   }
 
-  closeOrder() {
-
+  closeOrder(cartProduct: Cart) {
+    let dialogRef = this.dialog.open(CustomerDetailsComponent, {
+      data: [this.findCustomerDetailsById(cartProduct.id),'Дані відправки замовлення'],
+      hasBackdrop: true,
+      width:"25%",
+      disableClose: true,
+      autoFocus: true,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+    });
   }
 
   onClose() {
@@ -45,5 +59,16 @@ export class CartComponent {
     TestData.cartSource.splice(TestData.cartSource.indexOf(cartItem), 1);
     this.cartSum = this.cartSumCalculate();
     return of(cartItem);
+  }
+
+  cartItemPlus(cartItem: Cart) {
+    cartItem.qty+=1;
+    this.cartSum = this.cartSumCalculate();
+  }
+  cartItemMinus(cartItem: Cart) {
+    if (cartItem.qty>1) {
+      cartItem.qty -= 1;
+    this.cartSum = this.cartSumCalculate();
+    }
   }
 }

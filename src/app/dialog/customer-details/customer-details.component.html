@@ -1,0 +1,24 @@
+<h4 class="text-center">{{dialogTitle}}</h4>
+<div class="mx-lg-5 px-lg-2 align-items-start" >
+  <div class="align-middle">
+    <img src="assets/image/person.svg" style="margin-right:4px; padding-bottom:2px; height: 35px">
+    <input class="mb-2" placeholder="Призвіще, ім'я" type="text" value="{{customerDetails.fio}}">
+  </div>
+  <div class="align-middle">
+    <img src="assets/image/telephone.svg" style="margin-right:11px; padding-bottom:2px; height: 27px">
+    <input class="mb-2" placeholder="Телефон" type="text" value="{{customerDetails.phone}}">
+  </div>
+  <div class="align-middle">
+    <img src="assets/image/building.svg" style="margin-right:11px; padding-bottom:2px; height: 27px">
+    <input class="mb-2" placeholder="Місто" type="text" value="{{customerDetails.city}}">
+  </div>
+  <div class="align-middle">
+    <img src="assets/image/box.svg" style="margin-right:11px; padding-bottom:2px; height: 27px">
+    <input class="mb-2" placeholder="Куди відправить" type="text" value="{{customerDetails.adress}}">
+  </div>
+</div>
+<mat-dialog-actions align="center">
+  <button class="btn mx-2 btn-success align-center"
+          (click)="sendOrder()">Відправити замовлення</button>
+  <button class="btn mx-2 btn-danger align-center" (click)="onClose()">Закрити</button>
+</mat-dialog-actions>
